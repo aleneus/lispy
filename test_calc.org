@@ -1,0 +1,6 @@
+* run without arguments
+- run without args
+- [ ] message with proper syntax
+* calc proper equation
+- calc "(+ 1 2)"
+- [ ] result is 3
