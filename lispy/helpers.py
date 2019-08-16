@@ -36,10 +36,19 @@ def split(equ):
 def convert(x):
     """Recognise the type of argument ant convert part of string
     equation according to this type."""
-    if '.' in x:
-        return float(x)
-
     if x[0] == '"' and x[-1] == '"':
         return x[1:-1]
 
-    return int(x)
+    try:
+        y = int(x)
+        return y
+    except Exception:
+        pass
+
+    try:
+        y = float(x)
+        return y
+    except Exception:
+        pass
+
+    return x

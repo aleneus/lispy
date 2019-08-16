@@ -47,5 +47,10 @@ class TestConvert(unittest.TestCase):
         r = convert(s)
         self.assertTrue(isinstance(r, str))
 
+    def test_default_str(self):
+        s = 'int'
+        r = convert(s)
+        self.assertTrue(isinstance(r, str))
+
 
 unittest.main()
