@@ -13,6 +13,24 @@ class TestSplit(unittest.TestCase):
             r = split("+ 1 2")
         except ValueError:
             pass
+        else:
+            self.assertTrue(False)
+
+    def test_wrong_equ_no_right_bracket(self):
+        try:
+            r = split("(+ 1 2")
+        except ValueError:
+            pass
+        else:
+            self.assertTrue(False)
+
+    def test_wrong_equ_no_left_bracket(self):
+        try:
+            r = split("+ 1 2)")
+        except ValueError:
+            pass
+        else:
+            self.assertTrue(False)
 
     def test_flat(self):
         equ = "(+ 1 2)"

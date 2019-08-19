@@ -48,11 +48,13 @@ class TestEval(unittest.TestCase):
         self.assertAlmostEqual(r, 2.2)
 
     def test_wrong_types(self):
-        equ = '+ 1 "q"'
+        equ = '(+ 1 "q")'
         try:
             self.solve(equ)
-        except ValueError:
+        except TypeError:
             pass
+        else:
+            self.assertTrue(False)
 
     def test_cat(self):
         equ = '(cat "a" "b")'
@@ -65,6 +67,8 @@ class TestEval(unittest.TestCase):
             self.solve(equ)
         except KeyError:
             pass
+        else:
+            self.assertTrue(False)
 
 
 unittest.main()
