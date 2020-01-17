@@ -2,7 +2,16 @@
 
 from .helpers import split, convert
 
+
 class Solver:
+    """Solver calculates the lisp equation usin the set of basic
+    functions.
+
+    Parameters
+    ----------
+    funcs: list of functions
+        Functions familiar to solver
+    """
     def __init__(self, funcs):
         self._funcs = funcs
 

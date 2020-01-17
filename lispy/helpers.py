@@ -15,13 +15,19 @@ def split(equ):
     parts = []
     cur = ""
     level = 0
+    quote = False
+
     for x in _equ:
         if x == "(":
             level += 1
+
         if x == ")":
             level -= 1
-        
-        if x == " " and level == 0:
+
+        if x == '"':
+            quote = not quote
+
+        if x == " " and level == 0 and not quote:
             parts.append(cur)
             cur = ""
             continue
@@ -29,12 +35,12 @@ def split(equ):
         cur += x
 
     parts.append(cur)
-    
+
     return parts
 
 
 def convert(x):
-    """Recognise the type of argument ant convert part of string
+    """Recognise the type of argument and convert part of string
     equation according to this type."""
     if x[0] == '"' and x[-1] == '"':
         return x[1:-1]
