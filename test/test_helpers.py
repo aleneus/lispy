@@ -2,15 +2,15 @@ import unittest
 
 import sys
 import os
-sys.path.insert(0, os.path.abspath("."))
 
+sys.path.insert(0, os.path.abspath("."))
 from lispy.helpers import split, convert
 
 
 class TestSplit(unittest.TestCase):
     def test_wrong_equ_no_brackets(self):
         try:
-            r = split("+ 1 2")
+            split("+ 1 2")
         except ValueError:
             pass
         else:
@@ -18,7 +18,7 @@ class TestSplit(unittest.TestCase):
 
     def test_wrong_equ_no_right_bracket(self):
         try:
-            r = split("(+ 1 2")
+            split("(+ 1 2")
         except ValueError:
             pass
         else:
@@ -26,7 +26,7 @@ class TestSplit(unittest.TestCase):
 
     def test_wrong_equ_no_left_bracket(self):
         try:
-            r = split("+ 1 2)")
+            split("+ 1 2)")
         except ValueError:
             pass
         else:
@@ -47,6 +47,16 @@ class TestSplit(unittest.TestCase):
         self.assertEqual(ps[0], "+")
         self.assertEqual(ps[1], "1")
         self.assertEqual(ps[2], "(+ 1 2)")
+
+    def test_trailing_space(self):
+        equ = "(+ 1 2 )"
+        ps = split(equ)
+        self.assertEqual(ps, ["+", "1", "2"])
+
+    def test_trailing_more_spaces(self):
+        equ = "(    +       1        2     )"
+        ps = split(equ)
+        self.assertEqual(ps, ["+", "1", "2"])
 
 
 class TestConvert(unittest.TestCase):

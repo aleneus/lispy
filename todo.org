@@ -1,4 +1,7 @@
 * 0.1.0
 ** DONE [t] Add docstrings
 ** DONE [b] Strings with spaces (see concatenation tests)
+* 0.1.1
+** DONE [t] Process trailing spaces in lisp equations
+** TODO [e] Refactor helpers.split function
 * later

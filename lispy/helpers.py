@@ -28,13 +28,15 @@ def split(equ):
             quote = not quote
 
         if x == " " and level == 0 and not quote:
-            parts.append(cur)
+            if cur:
+                parts.append(cur)
             cur = ""
             continue
 
         cur += x
 
-    parts.append(cur)
+    if cur:
+        parts.append(cur)
 
     return parts
 
