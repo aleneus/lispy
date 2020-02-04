@@ -7,6 +7,7 @@ def split(equ):
 
     if equ[0] != '(':
         raise ValueError("Syntax error")
+
     if equ[-1] != ')':
         raise ValueError("Syntax error")
 
@@ -41,22 +42,36 @@ def split(equ):
     return parts
 
 
-def convert(x):
+def convert(arg):
     """Recognise the type of argument and convert part of string
     equation according to this type."""
-    if x[0] == '"' and x[-1] == '"':
-        return x[1:-1]
+
+    if (arg[0] == '"') and (arg[-1] == '"'):
+        return _str_arg(arg)
 
     try:
-        y = int(x)
-        return y
-    except Exception:
+        return int(arg)
+    except ValueError:
         pass
 
     try:
-        y = float(x)
-        return y
-    except Exception:
+        return float(arg)
+    except ValueError:
         pass
 
-    return x
+    return arg
+
+
+def brush_equ(equ):
+    """Brush equation to make it correct."""
+    return equ.strip().replace("\n", " ")
+
+
+def _str_arg(arg):
+    """Get string argument between the quotes."""
+    assert len(arg) > 1
+
+    sarg = arg[1:-1]
+    sarg = sarg.replace("\\n", "\n")
+    sarg = sarg.replace("\\t", "\t")
+    return sarg

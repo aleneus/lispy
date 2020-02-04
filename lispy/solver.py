@@ -1,6 +1,6 @@
 """This module implements solver."""
 
-from .helpers import split, convert
+from .helpers import split, convert, brush_equ
 
 
 class Solver:
@@ -16,7 +16,8 @@ class Solver:
         self._funcs = funcs
 
     def __call__(self, equ):
-        parts = split(equ)
+        equ_norm = brush_equ(equ)
+        parts = split(equ_norm)
 
         func = parts[0]
 

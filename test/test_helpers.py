@@ -4,7 +4,9 @@ import sys
 import os
 
 sys.path.insert(0, os.path.abspath("."))
-from lispy.helpers import split, convert
+from lispy.helpers import split
+from lispy.helpers import convert
+from lispy.helpers import brush_equ
 
 
 class TestSplit(unittest.TestCase):
@@ -79,6 +81,17 @@ class TestConvert(unittest.TestCase):
         s = 'int'
         r = convert(s)
         self.assertTrue(isinstance(r, str))
+
+
+class TestBrushEqu(unittest.TestCase):
+    def test_nothing_to_brush(self):
+        self.assertEqual(brush_equ('(+ 1 2)'), '(+ 1 2)')
+
+    def test_remove_single_new_line(self):
+        self.assertEqual(brush_equ('(+ 1\n2)'), '(+ 1 2)')
+
+    def test_remove_double_new_line(self):
+        self.assertEqual(brush_equ('(+ 1\n\n2)'), '(+ 1  2)')
 
 
 unittest.main()

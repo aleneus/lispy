@@ -3,5 +3,9 @@
 ** DONE [b] Strings with spaces (see concatenation tests)
 * 0.1.1
 ** DONE [t] Process trailing spaces in lisp equations
+** DONE [t] Brush equation string
+** DONE [t] Support special slashed symbols in string args
+* 0.1.2
+** TODO [t] helpers.py: add more special (slashed) symbols
 ** TODO [e] Refactor helpers.split function
 * later
