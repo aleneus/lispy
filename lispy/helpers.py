@@ -1,43 +1,48 @@
 """This module implements helpers for preparing string equations."""
 
 
+def brush_equ(equ):
+    """Brush equation to make it correct."""
+    return equ.strip().replace("\n", " ")
+
+
 def split(equ):
     """Splits equation to parts that can be values or another
-    equations. Returns list of parts."""
+    equations. Returns the list of parts."""
 
     if equ[0] != '(':
-        raise ValueError("Syntax error")
+        raise ValueError("Syntax error: ( expected")
 
     if equ[-1] != ')':
-        raise ValueError("Syntax error")
+        raise ValueError("Syntax error: ) expected")
 
     _equ = equ[1:-1]
 
     parts = []
-    cur = ""
+    part = ""
     level = 0
     quote = False
 
-    for x in _equ:
-        if x == "(":
+    for sym in _equ:
+        if sym == "(":
             level += 1
 
-        if x == ")":
+        if sym == ")":
             level -= 1
 
-        if x == '"':
+        if sym == '"':
             quote = not quote
 
-        if x == " " and level == 0 and not quote:
-            if cur:
-                parts.append(cur)
-            cur = ""
+        if sym == " " and level == 0 and not quote:
+            if part:
+                parts.append(part)
+            part = ""
             continue
 
-        cur += x
+        part += sym
 
-    if cur:
-        parts.append(cur)
+    if part:
+        parts.append(part)
 
     return parts
 
@@ -60,11 +65,6 @@ def convert(arg):
         pass
 
     return arg
-
-
-def brush_equ(equ):
-    """Brush equation to make it correct."""
-    return equ.strip().replace("\n", " ")
 
 
 def _str_arg(arg):

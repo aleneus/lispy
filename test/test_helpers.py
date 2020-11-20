@@ -7,12 +7,8 @@ from lispy.helpers import brush_equ
 
 class TestSplit(unittest.TestCase):
     def test_wrong_equ_no_brackets(self):
-        try:
+        with self.assertRaises(ValueError):
             split("+ 1 2")
-        except ValueError:
-            pass
-        else:
-            self.assertTrue(False)
 
     def test_wrong_equ_no_right_bracket(self):
         try:

@@ -10,7 +10,7 @@
 * 0.1.3
 ** DONE test: use nose2
 ** DONE deploy: add release-checklist.md
-** TODO ref: helpers.split function
+** DONE ref: helpers.split function
 * 0.1.4
 ** TODO feat: helpers.py: add more special (slashed) symbols
 * later
