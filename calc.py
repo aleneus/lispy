@@ -4,7 +4,7 @@ from lispy.solver import Solver
 
 
 FUNCS = {
-    '+': lambda x, y: x + y, 
+    '+': lambda x, y: x + y,
     '-': lambda x, y: x - y,
     '*': lambda x, y: x * y,
     '/': lambda x, y: x / y,
@@ -26,7 +26,7 @@ def parse_args():
 
 def main():
     parse_args()
-    
+
     s = Solver(FUNCS)
     try:
         r = s(ARGS['equation'])
@@ -35,5 +35,6 @@ def main():
         return
 
     print(r)
+
 
 main()

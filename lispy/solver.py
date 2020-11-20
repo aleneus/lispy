@@ -1,6 +1,6 @@
 """This module implements solver."""
 
-from .helpers import split, convert, brush_equ
+from lispy.helpers import split, convert, brush_equ
 
 
 class Solver:

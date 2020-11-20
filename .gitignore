@@ -1,1 +1,3 @@
-lispy/__pycache__/*
+*.pyc
+.coverage
+htmlcov/*

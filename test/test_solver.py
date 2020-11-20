@@ -1,9 +1,5 @@
 import unittest
 
-import sys
-import os
-
-sys.path.insert(0, os.path.abspath("."))
 from lispy.solver import Solver
 
 
@@ -70,6 +66,3 @@ class TestEval(unittest.TestCase):
             pass
         else:
             self.assertTrue(False)
-
-
-unittest.main()

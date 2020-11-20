@@ -8,8 +8,12 @@
 * 0.1.2
 ** DONE [t] ref: remove .hgignore
 * 0.1.3
-** TODO [t] helpers.py: add more special (slashed) symbols
-** TODO [e] Refactor helpers.split function
+** DONE test: use nose2
+** DONE deploy: add release-checklist.md
+** TODO ref: helpers.split function
+* 0.1.4
+** TODO feat: helpers.py: add more special (slashed) symbols
 * later
-** TODO [t] feat: add setup.py
-** TODO [t] feat: makefile: add upload target
+** TODO feat: calc.py: put to some folder
+** TODO feat: add setup.py
+** TODO feat: makefile: add upload target
